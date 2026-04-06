@@ -1,0 +1,51 @@
+site_name: Sensitivity-Analysis-of-Fractional-Constitutive-Models
+site_description: Sensitivity Analysis for Fractional-Order Constitutive Models
+site_author: Arman Khoshnevis
+
+repo_url: https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models
+repo_name: Sensitivity-Analysis-of-Fractional-Constitutive-Models
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: blue
+    accent: indigo
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+plugins:
+  - search
+  - caption
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [.]
+          options:
+            docstring_style: google
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
