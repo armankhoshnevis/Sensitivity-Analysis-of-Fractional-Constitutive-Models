@@ -4,17 +4,11 @@ import numpy as np
 import sys
 import os
 sys.path.append(os.path.abspath("../.."))
-from scripts.LSA.fmg_lsa_utils import (
+from fmm_lsa_utils import (
     generate_derivatives,
     load_parameter_bounds,
     run_monte_carlo,
     save_statistics_npz
-)
-
-from scripts.LSA.fmg_lsa_vis_utils import (
-    plot_local_sensitivity_indices,
-    read_excel_range,
-    plot_L1_grouped
 )
 
 import argparse
@@ -33,7 +27,7 @@ if __name__ == "__main__":
     batch_size = args.batch_size
 
     # Load configuration for the specified HSWF content and GnP
-    with open(f'../../configs/LSA/{HS}HSWF_FMG_Config.json', 'r') as config_file:
+    with open(f'../../configs/LSA/{HS}HSWF_FMM_Config.json', 'r') as config_file:
         config = json.load(config_file)
 
     file_path = config['file_path']
