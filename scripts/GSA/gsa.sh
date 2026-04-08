@@ -24,9 +24,9 @@ echo "Running on host $(hostname)"
 
 # Run the Python script
 # Note: Ensure you are in the correct directory or provide absolute paths
-python fmg_main.py --HS 20 --GnP_idx 0
+python fmg_gsa_main.py --HS 20 --GnP_idx 0
 
 # Uncomment the following line to run post-processing in the same job
-# python fmg_vis.py --S 'S1' --E 'Ep' --N 2048 --HS 20
+# python fmg_gsa_vis.py --S 'S1' --E 'Ep' --N 2048 --HS 20
 
 echo "Job finished at $(date)"
