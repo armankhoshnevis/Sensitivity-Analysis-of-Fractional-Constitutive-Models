@@ -11,11 +11,91 @@ This repository provides a computational framework for conducting sensitivity an
 * **`scripts/`**: Python main scripts and modules for LSA and GSA for both models.
 
 ## Installation
-
-Clone the repository and install the required dependencies:
-
+First, clone the repository and navigate into the project directory:
 ```bash
-git clone [https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Constitutive-Models.git](https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Constitutive-Models.git)
+git clone git@github.com:armankhoshnevis/Sensitivity-Analysis-of-Fractional-Constitutive-Models.git
 cd Sensitivity-Analysis-of-Fractional-Constitutive-Models
-pip install -r requirements.txt
+```
 
+### Option A: Python venv & pip (Recommended for Running Locally)
+If it is preferred to use standard Python virtual environments locally, `pip` alongside the `requirements.txt` file can be used. Then, execute the following commands:
+```bash
+python -m venv env
+
+# On Windows:
+.\env\Scripts\activate
+
+# On macOS/Linux:
+source env/bin/activate
+
+pip install -r requirements.txt
+```
+
+### Option B: Conda (Recommended for Running on Clusters)
+If it is preferred to run the codes on a cluster, `environment.yml` file is used to ensure exact dependency and Python version matching. Then, execute the following commands:
+```bash
+module load Miniforge3 # Replace with your specific cluster's module if different
+conda env create -f environment.yml
+conda activate SA_Project
+```
+
+## Quick Run
+### Running Locally
+Once your environment is activated (via Conda or venv), navigate to the `script` directory and execute the Python files directly from your terminal:
+
+* Global Sensitivity Analysis
+```bash
+cd script
+python fmg_gsa_main.py --HS 20 --GnP_idx 0
+python fmg_gsa_vis.py --S 'S1' --E 'Ep' --N 2048 --HS 20
+```
+
+* Local Sensitivity Analysis
+```bash
+python fmg_lsa_main.py --HS 20 --GnP_idx 0 --n_mc 100000 --batch_size 50000
+python fmg_lsa_vis.py --E_type 'Ep' --HS 20
+```
+
+### Running on a SLURM Cluster
+If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (`gsa.sh` and `lsa.sh`) is provided. The script is pre-configured to activate the SA_Project conda environment.
+```bash
+cd script
+sbatch gsa.sb
+```
+
+**Note:** The script's output and any errors will be automatically logged to standard `.out` and `.err` files in the working directory.
+
+## Documentation
+Please refer to this [link](https://armankhoshnevis.github.io/Sensitivity-Analysis-of-Fractional-Constitutive-Models/) for more comprehensive documentations.
+
+## Citation Requirements
+If you use this software, please cite it and its corresponding paper, as:
+
+- Software citation:
+  - APA style: Khoshnevis, A. (2026). Sensitivity Analysis of Fractional Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Constitutive-Models
+
+  - BibTeX entry:<br>
+    @software{Khoshnevis_SA_2026, <br>
+    author = {Khoshnevis, Arman},<br>
+    license = {Apache-2.0},<br>
+    month = apr,<br>
+    title = {{Sensitivity Analysis of Fractional Constitutive Models}},<br>
+    url = {https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Constitutive-Models},<br>
+    version = {1.0.0},<br>
+    year = {2026}<br>
+    }
+
+- Paper citation:
+@article{khoshnevis2025stochastic,
+  title={Stochastic Generalized-Order Constitutive Modeling of Viscoelastic Spectra of Polyurea-Graphene Nanocomposites},
+  author={Khoshnevis, Arman and Tzelepis, Demetrios A and Ginzburg, Valeriy V and Zayernouri, Mohsen},
+  journal={Engineering Reports},
+  volume={7},
+  number={9},
+  pages={e70367},
+  year={2025},
+  publisher={Wiley Online Library}
+}
+
+## Contributions
+This repository is a static archive of the project code. The software is provided "as-is" and is not actively maintained. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
