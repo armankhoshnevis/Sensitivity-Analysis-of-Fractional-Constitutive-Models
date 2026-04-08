@@ -15,7 +15,7 @@ import argparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--E_type', type=str, default=20)
+    parser.add_argument('--E_type', type=str, default=20, help='Type of modulus for which to plot sensitivity indices. E_type = Ep, Epp, or Ecomplex')
     parser.add_argument('--HS', type=int, default=0, help='Index of GnP in GnP_list for which to perform sensitivity analysis. GnP_idx = 0, 1, 2, 3 -> 0%, 0.5%, 1%, and 1.5% GnP')
     args = parser.parse_args()
     
