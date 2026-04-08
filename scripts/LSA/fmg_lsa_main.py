@@ -11,12 +11,6 @@ from scripts.LSA.fmg_lsa_utils import (
     save_statistics_npz
 )
 
-from scripts.LSA.fmg_lsa_vis_utils import (
-    plot_local_sensitivity_indices,
-    read_excel_range,
-    plot_L1_grouped
-)
-
 import argparse
 
 if __name__ == "__main__":
