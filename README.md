@@ -2,6 +2,11 @@
 
 This repository provides a computational framework for conducting sensitivity analysis on fractional-order constitutive models. In particular, this repository focuses on a derivative-based local sensitivity analysis (LSA) and a variance-based (Sobol' indices) global sensitivity analysis (GSA) for constitutive models consist of parallel Fractional Maxwell Model (FMM) and Fractional Maxwell Gel (FMG) models capturing the dynamic viscoelastic response of neat and nanocomposite polyureas. The framework relies on in-house Python code for LSA and SALib package for GSA.
 
+# Big Picture
+This repository is a part of a larger project aiming to develop a framework for deterministic and probabilistic calibration of fractional-order constitutive models capturing the linear viscoelastic response of polyurea nanocomposites. Deterministic calibration has been accomplished with PSO, while derivative-based local sensitivity analysis (LSA) and variance-based global sensitivity analysis (GSA) have been conducted as a bridge toward a probabilistic perspective ([LSA & GSA Repository](https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Order-Constitutive-Models)). These analyses facilitate factor prioritization and dimensionality reduction by identifying non-influential parameters that can be treated deterministically. Finally, Bayesian inference and uncertainty quantification (UQ) have been performed to conclude this comprehensive model development and analysis framework ([BI & UQ Repository](https://github.com/armankhoshnevis/BI-and-UQ-of-Fractional-Order-Constitutive-Models)). Figure 1 depicts a schematic overview of this framework. This repository focuses specifically on the modeling and optimization components.
+
+![Overview of Deterministic and Probabilistic Calibration of Fractional-Order Constitutive Models](docs/images/Overview.jpg)
+
 ## Repository Structure
 * **`configs/`**: Configuration files defining model parameters and their bounds for sensitivity analysis, and simulation settings.
 * **`dataset/`**: Optimized model parameters.
@@ -45,7 +50,7 @@ Once your environment is activated (via Conda or venv), navigate to the `script`
 
 * Global Sensitivity Analysis
 ```bash
-cd script
+cd script/GSA
 python fmg_gsa_main.py --HS 20 --GnP_idx 0
 python fmg_gsa_vis.py --S 'S1' --E 'Ep' --N 2048 --HS 20
 ```
@@ -61,7 +66,7 @@ python fmg_lsa_vis.py --E_type 'Ep' --HS 20
 ### Running on a SLURM Cluster
 If you are running the inference on a cluster that uses the SLURM workload manager, a sample batch script (`gsa.sh` and `lsa.sh`) is provided. The script is pre-configured to activate the SA_Project conda environment.
 ```bash
-cd script
+cd script/GSA
 sbatch gsa.sb
 ```
 
@@ -88,16 +93,16 @@ If you use this software, please cite it and its corresponding paper, as:
       }
 
 * **Paper citation**:<br>
-@article{khoshnevis2025stochastic, <br>
-  title={Stochastic Generalized-Order Constitutive Modeling of Viscoelastic Spectra of Polyurea-Graphene Nanocomposites},<br>
-  author={Khoshnevis, Arman and Tzelepis, Demetrios A and Ginzburg, Valeriy V and Zayernouri, Mohsen},<br>
-  journal={Engineering Reports},<br>
-  volume={7},<br>
-  number={9},<br>
-  pages={e70367},<br>
-  year={2025},<br>
-  publisher={Wiley Online Library}<br>
-}
+    * @article{khoshnevis2025stochastic, <br>
+        title={Stochastic Generalized-Order Constitutive Modeling of Viscoelastic Spectra of Polyurea-Graphene Nanocomposites},<br>
+        author={Khoshnevis, Arman and Tzelepis, Demetrios A and Ginzburg, Valeriy V and Zayernouri, Mohsen},<br>
+        journal={Engineering Reports},<br>
+        volume={7},<br>
+        number={9},<br>
+        pages={e70367},<br>
+        year={2025},<br>
+        publisher={Wiley Online Library}<br>
+      }
 
 ## Contributions
 This repository is a static archive of the project code. The software is provided "as-is" and is not actively maintained. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
