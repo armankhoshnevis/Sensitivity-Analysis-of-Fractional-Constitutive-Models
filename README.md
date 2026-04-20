@@ -79,6 +79,8 @@ Please refer to this [link](https://armankhoshnevis.github.io/Sensitivity-Analys
 If you use this software, please cite it and its corresponding paper, as:
 
 * **Software citation:**
+    * **Zenodo:** [![DOI](https://zenodo.org/badge/1198970808.svg)](https://doi.org/10.5281/zenodo.19670124)
+   
     * **APA style:** Khoshnevis, A. (2026). Sensitivity Analysis of Fractional Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Constitutive-Models
 
     * **BibTeX entry:** <br>
