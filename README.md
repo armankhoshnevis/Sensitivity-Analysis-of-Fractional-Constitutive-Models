@@ -81,11 +81,12 @@ If you use this software, please cite it and its corresponding paper, as:
 * **Software citation:**
     * **Zenodo:** [![DOI](https://zenodo.org/badge/1198970808.svg)](https://doi.org/10.5281/zenodo.19670124)
    
-    * **APA style:** Khoshnevis, A. (2026). Sensitivity Analysis of Fractional Constitutive Models (Version 1.0.0) [Computer software]. https://github.com/armankhoshnevis/Sensitivity-Analysis-of-Fractional-Constitutive-Models
+    * **APA style:** Khoshnevis, A. (2026). Sensitivity-Analysis-of-Fractional-Order-Constitutive-Models (Version 1.0.0) [Computer software]. https://doi.org/https://doi.org/10.5281/zenodo.19670124
 
     * **BibTeX entry:** <br>
       @software{Khoshnevis_Sensitivity_Analysis_of_2026, <br>
       author = {Khoshnevis, Arman},<br>
+      doi = {https://doi.org/10.5281/zenodo.19670124},<br>
       license = {Apache-2.0},<br>
       month = apr,<br>
       title = {{Sensitivity Analysis of Fractional Constitutive Models}},<br>
